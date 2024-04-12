@@ -16,7 +16,7 @@ def main():
         lcxcy = cam.listcxcy
         # Selection of target package
         destcls,destcxcy = cam.findDestcxcy(lconf,lcls,lcxcy)
-        destcls = cam.model_intel.names[int(destcls)]
+        destcls = cam.model_best.names[int(destcls)]
 
         # Step2:
         # aruco detection and calculating pixel to mm value
@@ -41,6 +41,8 @@ def main():
         # Depending on package found(i.e, front/back/side)
         # > the process varies: (there must be if-else condition to check the detected packages)
 
+        # Commented flipping 
+        '''
         # 1.If top(front):
         up_pkg = ["ubox","uflyer"]
         if destcls in up_pkg:
@@ -79,6 +81,10 @@ def main():
                     ardu.servoValue -= 10
                     ardu.servoSetAngle(ardu.servoValue)
 
+        '''
+
+        # Step5:
+        ardu.moveToDropZone()
 
         # Step6:
         ardu.Zmovedown_dropzone() # move to height (6000)
@@ -97,7 +103,7 @@ def main():
     
 
 #objects:
-ardu = arm_control(serialport="COM5")
+ardu = arm_control(serialport="/dev/ttyACM0")
 cam = camera()
 thread1 = threading.Thread(target=cam.cam_feed)
 thread2 = threading.Thread(target=cam.view)

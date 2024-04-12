@@ -18,6 +18,7 @@ class camera():
         # self.vid.set(cv2.CAP_PROP_FRAME_HEIGHT,480)
         self.model_intel = YOLO("./yolo_weights/intel.pt")
         self.model_econ = YOLO("./yolo_weights/econ.pt")
+        self.model_best = YOLO("./yolo_weights/best.pt")
 
         # Lists:  --> **** These are detection done in one instance / frame (So - when needed in main loop) *****
         # Note: --> The index's are respestive to each other
@@ -40,7 +41,7 @@ class camera():
 
     def detect_frame(self):  # YOLO detection
         annotator = Annotator(self.c_frame)
-        for result in self.model_intel.predict(source=self.c_frame,stream=True,show=True):
+        for result in self.model_best.predict(source=self.c_frame,stream=True,show=True):
             for box in result.boxes:
                 b = box.xyxy[0]
                 conf = round(float(box.conf),2)
