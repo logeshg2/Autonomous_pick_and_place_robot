@@ -44,6 +44,11 @@ To install [Pytorch](https://pytorch.org/) and [Cuda 11.8](https://developer.nvi
 
 5. ```\scara python\yolo_weights``` contains the yolov8 custom trained weight file.
 
+### Tele-Operation:
+<img src="https://github.com/logeshg2/Autonomous_pick_and_place_robot/blob/main/Images/telrop.jpg"  width="50%" />
+
+For More information check: ```\Tele-operation\readme.md```
+
 ### Object Detection:
 <img src="https://github.com/logeshg2/Autonomous_pick_and_place_robot/assets/121447333/7992a0c8-d150-4ad9-b999-7d1745e12015"  width="40%" /> 
 
@@ -52,6 +57,4 @@ To install [Pytorch](https://pytorch.org/) and [Cuda 11.8](https://developer.nvi
 
 ### Future works:
 
-1. ROS implementation
-
-2. Imitation learning implementation.
+1. Imitation learning implementation.
